@@ -42,22 +42,26 @@ function App() {
       >
         <h1>USER</h1>
         <form style={{ display: "flex", flexDirection: "column" }}>
-          <label htmlFor="name">name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={form.name}
-            onChange={onChangeHandler}
-          />
-          <label htmlFor="desc">description</label>
-          <input
-            type="text"
-            id="description"
-            name="description"
-            value={form.description}
-            onChange={onChangeHandler}
-          />
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <label htmlFor="name">name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={form.name}
+              onChange={onChangeHandler}
+            />
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <label htmlFor="description">description</label>
+            <input
+              type="text"
+              id="description"
+              name="description"
+              value={form.description}
+              onChange={onChangeHandler}
+            />
+          </div>
           <button type="submit" onClick={userSave}>
             제출
           </button>
