@@ -30,46 +30,56 @@ function App() {
   return (
     <div
       style={{
-        maxWidth: "500px",
         display: "flex",
-        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
-      <form style={{ display: "flex", flexDirection: "column" }}>
-        <label htmlFor="name">name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={form.name}
-          onChange={onChangeHandler}
-        />
-        <label htmlFor="desc">description</label>
-        <input
-          type="text"
-          id="description"
-          name="description"
-          value={form.description}
-          onChange={onChangeHandler}
-        />
-        <button type="submit" onClick={userSave}>
-          제출
-        </button>
-      </form>
-      <div style={{ display: "flex" }}>
-        <h1>id</h1>
-        <h2>name</h2>
-        <h3>description</h3>
+      <div
+        style={{
+          maxWidth: "500px",
+        }}
+      >
+        <h1>USER</h1>
+        <form style={{ display: "flex", flexDirection: "column" }}>
+          <label htmlFor="name">name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={form.name}
+            onChange={onChangeHandler}
+          />
+          <label htmlFor="desc">description</label>
+          <input
+            type="text"
+            id="description"
+            name="description"
+            value={form.description}
+            onChange={onChangeHandler}
+          />
+          <button type="submit" onClick={userSave}>
+            제출
+          </button>
+        </form>
+        <table border="1px solid black">
+          <tbody>
+            <tr>
+              <th>id</th>
+              <th>name</th>
+              <th>description</th>
+            </tr>
+          </tbody>
+          {users.map((user, i) => (
+            <tr key={i}>
+              <td>{user.id}</td>
+              <td>{user.name}</td>
+              <td>{user.description}</td>
+            </tr>
+          ))}
+        </table>
       </div>
-      {users.map((user, i) => (
-        <div key={i} style={{ display: "flex" }}>
-          <h1>{user.id}</h1>
-          <h2>{user.name}</h2>
-          <h3>{user.description}</h3>
-        </div>
-      ))}
     </div>
   );
 }
-
 export default App;
