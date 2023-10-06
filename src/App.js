@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
 import { api } from "./apiClient";
@@ -19,8 +18,8 @@ function App() {
   };
 
   const getUser = async () => {
-    const data = await api(`/api`, "GET", {});
-    setUsers(data);
+    const response = await api(`/api`, "GET", {});
+    setUsers(response.data);
   };
 
   useEffect(() => {

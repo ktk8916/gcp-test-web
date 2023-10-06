@@ -1,13 +1,18 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:8080";
+axios.defaults.baseURL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:8080"
+    : "http://10.128.0.4:8080";
 
-export const api = async (url, method, data) => {
-  const body = await axios({
+const api = async (url, method, data) => {
+  const response = await axios({
     url,
     method,
     data,
   });
 
-  return body.data;
+  return response;
 };
+
+export { api };
